@@ -19,7 +19,7 @@ module.exports = function templatize(path, options = { }) {
 	return new Promise((mainResolve, mainReject) => {
 		const globPromises = [ ];
 
-		let templateCache = `angular.module("${options.moduleName}").run([ "$templateCache", function($templateCache) {\n\tuse strict;`;
+		let templateCache = `angular.module("${options.moduleName}", [ ]).run([ "$templateCache", function($templateCache) {`;
 
 		paths.forEach(filePath => {
 			globPromises.push(new Promise(globResolve => {
@@ -39,8 +39,7 @@ module.exports = function templatize(path, options = { }) {
 
 								let minified = minify(html, {
 									removeComments: true,
-									collapseWhitespace: true,
-									quoteCharacter: "'"
+									collapseWhitespace: true
 								});
 
 								minified = minified.replace(/"/g, "\\\"");

@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-"use strict";var templates=require("./ng-templates");if(process.argv.length < 4){console.log("Usage:\n  ng-templates <module-name> <path> [path] ...");}else {var moduleName=process.argv[2];var paths=process.argv.slice(3);templates(paths,{moduleName:moduleName,name:function name(filename){return filename.replace(/^src\//,"");}}).then(function(files){console.log(files);});}
+"use strict";var templates=require("./ng-templates");if(process.argv.length < 4){console.log("Usage:\n  ng-templates <module-name> <path> [path] ...");}else {var moduleName=process.argv[2];var paths=process.argv.slice(3);templates(paths,{moduleName:moduleName}).then(function(files){console.log(files);});}

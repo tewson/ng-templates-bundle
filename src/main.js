@@ -9,10 +9,7 @@ if (process.argv.length < 4) {
 	const paths = process.argv.slice(3);
 
 	templates(paths, {
-		moduleName: moduleName,
-		name(filename) {
-			return filename.replace(/^src\//, "");
-		}
+		moduleName: moduleName
 	}).then(function(files) {
 		console.log(files);
 	});
