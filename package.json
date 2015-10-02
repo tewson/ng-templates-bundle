@@ -2,7 +2,12 @@
   "name": "ng-templates",
   "version": "1.0.0",
   "description": "Convert HTML into Angular templates",
-  "main": "main.js",
+  "main": "bin/ng-templates.js",
+  "bin": "bin/main.js",
+  "scripts": {
+    "build": "babel --compact --no-comments -d bin src",
+    "prebuild": "cooger-style src/*.js"
+  },
   "keywords": [
     "angular",
     "ng",
@@ -14,5 +19,13 @@
   "repository": {
     "type": "git",
     "url": "mgwalker/ng-templates"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "cooger-style": "^1.0.2"
+  },
+  "dependencies": {
+    "glob": "^5.0.15",
+    "html-minifier": "^0.8.0"
   }
 }
