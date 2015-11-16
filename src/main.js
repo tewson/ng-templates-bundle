@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 
+const flags = require("flags");
 const templates = require("./ng-templates");
 
-if (process.argv.length < 4) {
-	console.log("Usage:\n  ng-templates <module-name> <path> [path] ...");
-} else {
-	const moduleName = process.argv[2];
-	const paths = process.argv.slice(3);
+flags.usageInfo = "Usage:\n  ng-templates [options] <path> [path] ...";
+flags.defineString("moduleName", "ng-templates", "The name of the module to contain template cache");
+flags.defineString("paths", [ "*.html" ], "Paths to HTML files");
+flags.defineBoolean("standalone", false, "Whether the module being used is standalone");
+flags.defineString("filenamePrefix", "", "A prefix to apply to filenames");
+flags.parse();
 
-	templates(paths, {
-		moduleName: moduleName
+if (process.argv.length < 3) {
+	flags.help();
+} else {
+	const nameFn = flags.get("filenamePrefix") ? n => `${flags.get("filenamePrefix")}${n}` : n => n;
+
+	templates(flags.get("paths"), {
+		moduleName: flags.get("moduleName"),
+		standalone: flags.get("standalone"),
+		name: nameFn
 	}).then(function(files) {
 		console.log(files);
 	});

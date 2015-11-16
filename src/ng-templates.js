@@ -6,6 +6,9 @@ module.exports = function templatize(path, options = { }) {
 	if (!options.moduleName) {
 		options.moduleName = "templates";
 	}
+	if (!options.standalone) {
+		options.standalone = false;
+	}
 	if (typeof options.name != "function") {
 		options.name = filename => filename;
 	}
@@ -19,7 +22,7 @@ module.exports = function templatize(path, options = { }) {
 	return new Promise((mainResolve, mainReject) => {
 		const globPromises = [ ];
 
-		let templateCache = `angular.module("${options.moduleName}", [ ]).run([ "$templateCache", function($templateCache) {`;
+		let templateCache = `angular.module("${options.moduleName}"${options.standalone ? "" : ", [ ]"}).run([ "$templateCache", function($templateCache) {`;
 
 		paths.forEach(filePath => {
 			globPromises.push(new Promise(globResolve => {
