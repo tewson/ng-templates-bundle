@@ -22,7 +22,7 @@ module.exports = function templatize(path, options = { }) {
 	return new Promise((mainResolve, mainReject) => {
 		const globPromises = [ ];
 
-		let templateCache = `angular.module("${options.moduleName}"${options.standalone ? "" : ", [ ]"}).run([ "$templateCache", function($templateCache) {`;
+		let templateCache = `angular.module("${options.moduleName}"${options.standalone ? ", [ ]" : ""}).run([ "$templateCache", function($templateCache) {`;
 
 		paths.forEach(filePath => {
 			globPromises.push(new Promise(globResolve => {
