@@ -1,4 +1,4 @@
-Copyright (c) 2015 Greg Walker <ng-templates@darkcooger.net>
+Copyright (c) 2016 Tewson Seeoun <contact@tewson.com>
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

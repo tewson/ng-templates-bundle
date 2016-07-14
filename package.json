@@ -1,8 +1,8 @@
 {
-  "name": "ng-templates",
-  "version": "2.0.1",
-  "description": "Convert HTML into Angular templates",
-  "main": "bin/ng-templates.js",
+  "name": "ng-templates-bundle",
+  "version": "0.0.1",
+  "description": "A command line tool that uses $templateCache to bundle HTML templates into an AngularJS module, forked from @mgwalker's ng-templates",
+  "main": "bin/ng-templates-bundle.js",
   "bin": "bin/main.js",
   "scripts": {
     "build": "babel --compact --no-comments -d bin src",
@@ -14,11 +14,11 @@
     "templates",
     "html"
   ],
-  "author": "Greg Walker <ng-templates@darkcooger.net>",
+  "author": "Tewson Seeoun <contact@tewson.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "mgwalker/ng-templates"
+    "url": "tewson/ng-templates-bundle"
   },
   "devDependencies": {
     "babel": "^5.8.23",

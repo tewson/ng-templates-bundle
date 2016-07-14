@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const flags = require("flags");
-const templates = require("./ng-templates");
+const templates = require("./ng-templates-bundle");
 
-flags.usageInfo = "Usage:\n  ng-templates [options] <path> [path] ...";
-flags.defineString("moduleName", "ng-templates", "The name of the module to contain template cache");
+flags.usageInfo = "Usage:\n  ng-templates-bundle [options] <path> [path] ...";
+flags.defineString("moduleName", "templates", "The name of the module to contain template cache");
 flags.defineString("paths", [ "*.html" ], "Paths to HTML files");
 flags.defineBoolean("standalone", false, "Whether the module being used is standalone");
 flags.defineString("filenamePrefix", "", "A prefix to apply to filenames");
