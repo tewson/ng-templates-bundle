@@ -1,6 +1,6 @@
 {
   "name": "ng-templates-bundle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A command line tool that uses $templateCache to bundle HTML templates into an AngularJS module, forked from @mgwalker's ng-templates",
   "main": "bin/ng-templates-bundle.js",
   "bin": "bin/main.js",
