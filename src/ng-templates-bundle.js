@@ -48,6 +48,7 @@ module.exports = function templatize (path, options = {}) {
                 })
 
                 minified = minified.replace(/'/g, '\\\'')
+                minified = minified.replace(/\n/g, '\\\n')
                 minified = `$templateCache.put('${options.name(file)}', '${minified}')`
                 templateCache += `\n\t${minified}`
 
