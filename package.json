@@ -6,7 +6,9 @@
   "bin": "bin/main.js",
   "scripts": {
     "build": "babel --compact --no-comments -d bin src",
-    "prebuild": "standard src/*.js"
+    "prebuild": "standard src/*.js",
+    "pretest": "npm run build && mkdir -p tmp && ./bin/main.js --paths ./test/template.html --standalone > tmp/templates.js",
+    "test": "mocha test"
   },
   "keywords": [
     "angular",
@@ -21,7 +23,11 @@
     "url": "tewson/ng-templates-bundle"
   },
   "devDependencies": {
+    "angular": "^1.5.8",
     "babel": "^5.8.23",
+    "chai": "^3.5.0",
+    "jsdom": "^9.8.0",
+    "mocha": "^3.1.2",
     "standard": "^7.1.2"
   },
   "dependencies": {
