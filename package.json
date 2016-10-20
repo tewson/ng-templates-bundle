@@ -7,7 +7,7 @@
   "scripts": {
     "build": "babel --compact --no-comments -d bin src",
     "prebuild": "standard src/*.js",
-    "pretest": "npm run build && mkdir -p tmp && ./bin/main.js --paths ./test/template.html --standalone > tmp/templates.js",
+    "pretest": "npm run build && mkdir -p tmp && ./bin/main.js --paths test/template.html --standalone > tmp/templates.js",
     "test": "mocha test"
   },
   "keywords": [
